@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Aug 22 00:59:41 2023
 
-@author: Henrik
-"""
 
 # -*- coding: utf-8 -*
 import requests
