@@ -32,6 +32,9 @@ odds_response = requests.get(url, params=params)
 
 odds_data = json.loads(odds_response.text)
 
+
+# --- Arbitrage finder --- 
+
 #Initalize an empty list to store data rows
 rows_list  = []
 
@@ -73,6 +76,7 @@ if not df.empty and 'bookmaker_key' in df.columns:
     df_arbitrage ['stake']=(total_stake / df_arbitrage['sum_implied_prob']) * df_arbitrage['implied_probability']
 
 
+#--- Value odds finder ---
 pinnacle = 'pinnacle'
 unibet = 'unibet_eu'
 
