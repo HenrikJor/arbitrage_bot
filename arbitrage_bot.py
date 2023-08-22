@@ -1,6 +1,3 @@
-# -*- coding: utf-8 -*-
-
-
 # -*- coding: utf-8 -*
 import requests
 import json
@@ -72,16 +69,6 @@ if not df.empty and 'bookmaker_key' in df.columns:
     df_arbitrage ['stake']=(total_stake / df_arbitrage['sum_implied_prob']) * df_arbitrage['implied_probability']
 
 
-#--- Value odds finder ---
-pinnacle = 'pinnacle'
-unibet = 'unibet_eu'
-
-df_pinnacle = df_arbitrage[df_arbitrage['bookmaker_key'] == pinnacle]
-df_unibet = df_arbitrage[df_arbitrage['bookmaker_key'] == unibet]
-
-merged_df = pd.merge(df_pinnacle, df_unibet, on=['game_id', 'outcome_name', 'bookmaker_key'], suffixes=('_pinnacle', '_unibet'))
-
-merged_df['odds_difference'] = merged_df['outcome_price_pinnacle'] - merged_df['outcome_price_unibet']
 
 
 
